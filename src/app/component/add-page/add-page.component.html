@@ -1,0 +1,43 @@
+<div class="container">
+  <form #entryForm="ngForm">
+    <div class="form-group">
+      <label for="firstName">First name:</label>
+      <input type="text"
+             name="firstName"
+             placeholder="Enter first name"
+             class="form-control"
+             [(ngModel)]="entry.firstName">
+    </div>
+            
+    <div class="form-group">
+      <label for="lastName">Last name:</label>
+      <input type="text"
+             name="lastName"
+             placeholder="Enter last name"
+             class="form-control"
+             [(ngModel)]="entry.lastName">  
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text"
+             name="email"
+             placeholder="Enter email"
+             class="form-control"
+             [(ngModel)]="entry.email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text"
+             name="phone"
+             placeholder="Enter phone number"
+             class="form-control"
+             [(ngModel)]="entry.phone">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary"
+              (click)="newEntry()">
+              Submit
+      </button>
+    </div>
+  </form>
+</div>
