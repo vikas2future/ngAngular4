@@ -7,11 +7,9 @@
     "start": ""
   },
   "author": "Steven Rogers <steven.rogers909@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "fs": "0.0.1-security",
     "node-colorify": "^2.0.1",
-    "path": "^0.12.7",
     "restify": "^6.3.4"
   }
 }

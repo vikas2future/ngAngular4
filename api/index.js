@@ -1,5 +1,4 @@
 const restify = require('restify');
-const fs = require("fs");
 const mockData = require("./mockdata.json");
 
 const server = restify.createServer();
@@ -11,6 +10,7 @@ server.use(function(req, res, next) {
   next();
 });
 
+// routes
 server.get("users/", getAllUsers);
 
 server.listen(3050, '127.0.0.1', function () {
