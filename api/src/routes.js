@@ -1,4 +1,4 @@
-const mockData = require('./mockdata.json');
+const mockData = require('../src/mockdata.json');
 
 const svc = {};
 

@@ -1,5 +1,5 @@
 const server = require('restify').createServer();
-const route = require('./routes');
+const route = require('../src/routes');
 
 server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
