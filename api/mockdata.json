@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Steven",
+      "lastName": "Rogers",
+      "email": "steven.rogers909@gmail.com",
+      "mobile": "222-222-2222"
+    },
+    {
+      "id": 1,
+      "firstName": "Paridhi",
+      "lastName": "Dixit",
+      "email": "paridhi.dixit@thomsonreuters.com",
+      "mobile": "222-333-4444"
+    },
+    {
+      "id": 1,
+      "firstName": "Michael",
+      "lastName": "Jordan",
+      "email": "mike.jordan@gmail.com",
+      "mobile": "888-898-2222"
+    },{
+      "id": 1,
+      "firstName": "Vikas",
+      "lastName": "ReallyLongLastName",
+      "email": "vikas@gmail.com",
+      "mobile": "222-222-2222"
+    }
+  ]
+}
