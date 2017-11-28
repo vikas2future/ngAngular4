@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": ""
+    "start": "node src/index.js"
   },
   "author": "Steven Rogers <steven.rogers909@gmail.com>",
   "license": "MIT",
