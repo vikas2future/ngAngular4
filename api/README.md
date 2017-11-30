@@ -25,6 +25,10 @@ In git bash (or any terminal), run the following command:
 npm start
 ```
 
+## Database
+
+* [mLab](https://mlab.com/databases/lunchlearn)
+
 ## References
 
 * [NodeJS](http://nodejs.org/)

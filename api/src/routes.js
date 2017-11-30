@@ -1,7 +1,5 @@
-const mongo = require('mongojs');
 const color = require('node-colorify');
-
-const db = mongo('mongodb://lunchlearn:Reuters909!@ds119446.mlab.com:19446/lunchlearn', ['Users']);
+const db = require('../src/database');
 
 const svc = {};
 
