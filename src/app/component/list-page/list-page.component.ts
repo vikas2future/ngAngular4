@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-list-page',
@@ -8,53 +10,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class ListPageComponent implements OnInit {
 lstRecords: any = [];
+apiUrl: any = 'http://127.0.0.1:3050/users';
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+
+  }
 
   ngOnInit() {
 
-   this.lstRecords = [
-  {
-    "id": 1,
-    "firstName": "Leanne",
-    "lastName": "Graham",
-    "email": "Sincere@april.biz",
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org"
-  },
-  {
-    "id": 2,
-    "firstName": "Ervin",
-    "lastName": "Howell",
-    "email": "Shanna@melissa.tv",
-    "phone": "010-692-6593 x09125",
-    "website": "anastasia.net"
-  },
-  {
-    "id": 3,
-    "firstName": "Clementine",
-    "lastName": "Bauch",
-    "email": "Nathan@yesenia.net",
-    "phone": "1-463-123-4447",
-    "website": "ramiro.info"
-  },
-  {
-    "id": 4,
-    "firstName": "Patricia",
-    "lastName": "Lebsack",
-    "email": "Julianne.OConner@kory.org",
-    "phone": "493-170-9623 x156",
-    "website": "kale.biz"
-  },
-  {
-    "id": 5,
-    "firstName": "Chelsey",
-    "lastName": "Dietrich",
-    "email": "Lucio_Hettinger@annie.ca",
-    "phone": "(254)954-1289",
-    "website": "demarco.info"
-  }
-];
+   this.http.get(this.apiUrl).subscribe(data => {
+     this.lstRecords = data;
+   })
   }
 
 }

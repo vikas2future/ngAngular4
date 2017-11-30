@@ -1,9 +1,9 @@
-const mockData = require('../src/mockdata.json');
+const mockData = require('../src/entries-mockdata.json');
 
 const svc = {};
 
 svc.getAllUsers = (req, res, next) => {
-  res.json(200, mockData.users);
+  res.json(200, mockData);
   next();
 };
 
