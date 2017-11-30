@@ -1,18 +1,19 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-md-2">id</div>
+    <div class="col-md-1">id</div>
     <div class="col-md-2">First Name</div>
     <div class="col-md-2">Last Name</div>
     <div class="col-md-2">Email</div>
-    <div class="col-md-2">Mobile</div>
-    <div class="col-md-2">Actions</div>
+    <div class="col-md-3">Mobile</div>
+    <div class="col-md-2">Website</div>
   </div>
-</div>
-<div>
-  <ul>
-    <li *ngFor="let record of lstRecords">
-      {{record.firstName}}
-    </li>
-  </ul>
+  <div class="row" *ngFor="let record of lstRecords">
+    <div class="col-md-1">{{record.id}}</div>
+    <div class="col-md-2">{{record.firstName}}</div>
+    <div class="col-md-2">{{record.lastName}}</div>
+    <div class="col-md-2">{{record.email}}</div>
+    <div class="col-md-3">{{record.phone}}</div>
+    <div class="col-md-2">{{record.website}}</div>
+  </div>
 </div>
   
