@@ -24,3 +24,9 @@ In git bash (or any terminal), run the following command:
 ```console
 npm start
 ```
+
+## References
+
+* [NodeJS](http://nodejs.org/)
+* [Restify](http://restify.com/)
+* [Node-Colorify](https://www.npmjs.com/package/node-colorify)
