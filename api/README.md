@@ -30,3 +30,4 @@ npm start
 * [NodeJS](http://nodejs.org/)
 * [Restify](http://restify.com/)
 * [Node-Colorify](https://www.npmjs.com/package/node-colorify)
+* [Mongo.js](https://www.npmjs.com/package/mongojs)

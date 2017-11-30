@@ -9,6 +9,7 @@
   "author": "Steven Rogers <steven.rogers909@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "mongojs": "^2.4.1",
     "node-colorify": "^2.0.1",
     "restify": "^6.3.4"
   }
