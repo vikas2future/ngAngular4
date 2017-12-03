@@ -53,13 +53,13 @@ svc.getAllUsers = (req, res, next) => {
  */
 svc.getUserById = (req, res, next) => {
   if (!req.params.id) {
-    res.send(503, { 'message': 'An id is required.' });
+    res.send(404, { 'message': 'An id is required.' });
     return next();
   }
 
   docs.Users.findOne({ '_id': mongojs.ObjectId(req.params.id) }, (err, doc) => {
     if (err) {
-      res.send(503, { 'message': err });
+      res.send(503, err);
     } else {
       res.json(200, doc);
     }
@@ -73,7 +73,7 @@ svc.getUserById = (req, res, next) => {
  */
 svc.addUser = (req, res, next) => {
   if (!req.body) {
-    res.send(503, { 'message': 'User object is required.' });
+    res.send(404, { 'message': 'User object is required.' });
     return next();
   }
 
@@ -93,17 +93,17 @@ svc.addUser = (req, res, next) => {
  */
 svc.deleteUser = (req, res, next) => {
   if (!req.params.id) {
-    res.send(503, 'An id is required.');
+    res.send(404, 'An id is required.');
     return next();
   }
 
   docs.Users.remove({ '_id': mongojs.ObjectId(req.params.id) }, true, (err) => {
     if (err) {
       res.send(503, err);
-      return next();
+    } else {
+      res.send(200);
     }
 
-    res.send(200);
     return next();
   });
 };
@@ -113,14 +113,14 @@ svc.deleteUser = (req, res, next) => {
  */
 svc.updateUser = (req, res, next) => {
   if (!req.body || !req.params.id) {
-    res.send(503, 'A user object is required.');
+    res.send(404, 'A user object is required.');
     return next();
   }
 
   docs.Users.findAndModify({
     'query': { '_id': mongojs.ObjectId(req.params.id) },
     'update': { '$set': req.body }
-  }, (err, doc) => {
+  }, err => {
     if (err) {
       res.send(503, err);
     } else {
