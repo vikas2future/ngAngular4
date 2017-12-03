@@ -1,12 +1,12 @@
 {
   "name": "api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.2.0",
+  "description": "The REST service connection to the mLab.com \"lunchlearn\" mongo database.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js"
   },
-  "author": "Steven Rogers <steven.rogers909@gmail.com>",
+  "author": "Steven Rogers <steven.rogers@thomsonreuters.com>",
   "license": "MIT",
   "dependencies": {
     "mongojs": "^2.4.1",
