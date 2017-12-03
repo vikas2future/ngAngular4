@@ -1,11 +1,18 @@
-const server = require('restify').createServer();
+const restify = require('restify');
 const color = require('node-colorify');
 const util = require('../src/utilities');
 
-/**
- * All queries to the database are done here and returned to the routes below.
- */
+const server = restify.createServer();
+
 const routes = require('../src/routes');
+
+/**
+  * Middleware
+  */
+server.use(restify.plugins.jsonBodyParser({ mapParams: true }));
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser({ mapParams: true }));
+server.use(restify.plugins.fullResponse());
 
 /**
  *********************************************************************************
@@ -13,6 +20,10 @@ const routes = require('../src/routes');
  *********************************************************************************
  */
 server.get('users/', routes.getAllUsers);
+server.get('user/:id', routes.getUserById);
+server.post('user/', routes.addUser);
+server.put('user/:id', routes.updateUser);
+server.del('user/:id', routes.deleteUser);
 
 /**
  * REST service error handling.
@@ -33,3 +44,5 @@ server.use((err, req, res, next) => {
 server.listen(3050, '127.0.0.1', () => {
   util.log(`REST server running at ${server.url}`, util.TYPES.SUCCESS);
 });
+
+module.exports = server;
