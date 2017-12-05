@@ -22,13 +22,25 @@ server.get("users/", route.getAllUsers);
 In git bash (or any terminal), run the following command:
 
 ```console
-npm start
+$ npm start
 ```
 
-## Database
+## Installing Mongo Database
 
-* [mLab](https://mlab.com/databases/lunchlearn)
-* See [Steven Rogers](steven.rogers@thomsonreuters.com) for account access.
+* Download [mongoDB](https://www.mongodb.com/download-center#community).  If running Windows 10, download the "Windows Server 2008 R2 64-bit and later" edition.
+* To make it easy on you, after installation, add "C:\Program Files\MongoDB\Server\3.4\bin;" to the environment variables in the "PATH" key.
+* On a command prompt, execute:
+
+```console
+$ mongod
+```
+
+* The mongo database should be started on port 27017.
+
+## Script Commands
+
+* start
+  * Launches the restify server.
 
 ## References
 
