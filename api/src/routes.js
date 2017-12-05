@@ -7,10 +7,7 @@ const util = require('../src/utilities');
  */
 const documents = ['Users'];
 
-/**
- * Setting up a connection to the mlab.com database.  Username & password included in the string.  Totally secure.  Lol
- */
-const db = mongojs('mongodb://learner:reuters909@ds119446.mlab.com:19446/lunchlearn', documents);
+const db = mongojs('mongodb://localhost:27017/LunchLearn', documents);
 
 /**
  * MongoDB connection error handling.
