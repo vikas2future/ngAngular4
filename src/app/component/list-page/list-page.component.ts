@@ -9,8 +9,7 @@ import 'rxjs/add/operator/map';
   encapsulation: ViewEncapsulation.None
 })
 export class ListPageComponent implements OnInit {
-lstRecords: any = [];
-apiUrl: any = 'http://127.0.0.1:3050/users';
+  lstRecords: any = [];
 
   constructor(private http: HttpClient) {
 
@@ -18,9 +17,10 @@ apiUrl: any = 'http://127.0.0.1:3050/users';
 
   ngOnInit() {
 
-   this.http.get(this.apiUrl).subscribe(data => {
-     this.lstRecords = data;
-   })
+    this.http.get('/users/').subscribe(data => {
+      this.lstRecords = data;
+      console.log(data);
+    });
   }
 
 }

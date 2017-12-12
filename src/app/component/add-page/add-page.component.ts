@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Entry } from './entry';
 
@@ -12,7 +13,7 @@ export class AddPageComponent implements OnInit {
   entry = {};
   entries: any = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -21,9 +22,12 @@ export class AddPageComponent implements OnInit {
     let newEntry: any;
     newEntry = new Entry(this.entry.firstName, this.entry.lastName, this.entry.email, this.entry.phone);
 
-    this.entries.push(newEntry);
-    this.entry = {};
-    console.log(this.entries);
+    this.http.post('/user', newEntry).subscribe(data => {
+      this.entries.push(newEntry);
+      console.log(this.entries);
+      this.entry = {};
+    });
+
   };
 
 }

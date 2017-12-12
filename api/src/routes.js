@@ -78,7 +78,7 @@ svc.addUser = (req, res, next) => {
     if (err) {
       res.send(503, err);
     } else {
-      res.send(200);
+      res.json(200, { message: 'User created!', data: req.body });
     }
 
     return next();

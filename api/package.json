@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "The REST service connection to the mLab.com \"lunchlearn\" mongo database.",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "nodemon src/index.js"
   },
   "author": "Steven Rogers <steven.rogers@thomsonreuters.com>",
   "license": "MIT",
@@ -11,5 +11,8 @@
     "mongojs": "^2.4.1",
     "node-colorify": "^2.0.1",
     "restify": "^6.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.5"
   }
 }
