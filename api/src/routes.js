@@ -78,7 +78,7 @@ svc.addUser = (req, res, next) => {
     if (err) {
       res.send(503, err);
     } else {
-      res.send(200);
+      res.send(200, 'Success');
     }
 
     return next();
@@ -98,7 +98,7 @@ svc.deleteUser = (req, res, next) => {
     if (err) {
       res.send(503, err);
     } else {
-      res.send(200);
+      res.send(200, 'Ok');
     }
 
     return next();
@@ -114,6 +114,7 @@ svc.updateUser = (req, res, next) => {
     return next();
   }
 
+  delete req.body._id;
   docs.Users.findAndModify({
     'query': { '_id': mongojs.ObjectId(req.params.id) },
     'update': { '$set': req.body }
@@ -121,7 +122,7 @@ svc.updateUser = (req, res, next) => {
     if (err) {
       res.send(503, err);
     } else {
-      res.send(200);
+      res.send(200, 'Sucess');
     }
   });
 
