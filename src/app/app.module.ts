@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ListPageComponent } from './component/list-page/list-page.component';
 import { AddPageComponent } from './component/add-page/add-page.component';
+import {ApiService} from "./api-service.service";
 
 import { EntriesService } from './services/entries-service.service';
 
@@ -21,9 +22,7 @@ import { EntriesService } from './services/entries-service.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [
-    EntriesService
-  ],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

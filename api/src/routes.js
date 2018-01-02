@@ -113,6 +113,7 @@ svc.updateUser = (req, res, next) => {
     return next();
   }
 
+  delete req.body._id;
   docs.Users.findAndModify({
     'query': { '_id': mongojs.ObjectId(req.params.id) },
     'update': { '$set': req.body }

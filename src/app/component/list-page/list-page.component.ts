@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { EntriesService } from '../../services/entries-service.service';
+=======
+import { Component, ViewEncapsulation } from '@angular/core';
+import {ApiService} from '../../api-service.service';
+>>>>>>> 194a547f4f3cdce8895a7244c858096dce322639
 
 @Component({
   selector: 'app-list-page',
@@ -9,26 +14,24 @@ import { EntriesService } from '../../services/entries-service.service';
   styleUrls: ['./list-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ListPageComponent implements OnInit {
-  lstRecords: any = [];
 
-  constructor(private http: HttpClient, private entriesService: EntriesService) {
+export class ListPageComponent {
+lstRecords: any = [];
+showList = false;
 
-  }
-
-  ngOnInit() {
-
-    this.http.get('/users').subscribe(data => {
+  constructor(private apiService: ApiService) {
+    this.apiService.getAllUserRecords().subscribe((data) => {
+      console.log(data);
       this.lstRecords = data;
-      this.entriesService.entries = data;
+      this.lstRecords.length > 0 ? this.showList = true : this.showList = false;
     });
   }
 
-  deleteEntry = (entry, index) => {
-    this.http.delete('/user/' + entry._id).subscribe(res => {
-      console.log(res);
-      this.entriesService.deleteEntry(index);
-    });
+  deleteUser(id) {
+    this.apiService.deleteUserRecord(id).subscribe((response) => console.log(response));
   }
 
+  updateUser(id, updatedRecord) {
+    this.apiService.updateUserRecord(id, updatedRecord).subscribe((response) => console.log(response));
+  }
 }
