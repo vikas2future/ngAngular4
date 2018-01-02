@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { ListPageComponent } from './component/list-page/list-page.component';
 import { AddPageComponent } from './component/add-page/add-page.component';
 
+import { EntriesService } from './services/entries-service.service';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AddPageComponent } from './component/add-page/add-page.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    EntriesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

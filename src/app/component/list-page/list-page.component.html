@@ -5,14 +5,18 @@
     <div class="col-md-2">Last Name</div>
     <div class="col-md-2">Email</div>
     <div class="col-md-3">Mobile</div>
-    <div class="col-md-2">Website</div>
+    <div class="col-md-2">Delete</div>
   </div>
-  <div class="row" *ngFor="let record of lstRecords">
+  <div class="row" *ngFor="let record of lstRecords; let i = index">
     <div class="col-md-1"></div>
     <div class="col-md-2">{{record.firstName}}</div>
     <div class="col-md-2">{{record.lastName}}</div>
     <div class="col-md-2">{{record.email}}</div>
     <div class="col-md-3">{{record.phone}}</div>
-    <div class="col-md-2">{{record.website}}</div>
+    <div class="col-md-2">
+      <button class="btn btn-danger btn-small" (click)="deleteEntry(record, i)">
+        Delete
+      </button>
+    </div>
   </div>
 </div>

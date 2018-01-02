@@ -74,13 +74,12 @@ svc.addUser = (req, res, next) => {
     return next();
   }
 
-  docs.Users.save(req.body, err => {
+  docs.Users.save(req.body, (err, saved) => {
     if (err) {
       res.send(503, err);
     } else {
-      res.json(200, { message: 'User created!', data: req.body });
+      res.json(200, { message: 'User created!', data: saved });
     }
-
     return next();
   });
 };
@@ -94,11 +93,11 @@ svc.deleteUser = (req, res, next) => {
     return next();
   }
 
-  docs.Users.remove({ '_id': mongojs.ObjectId(req.params.id) }, true, (err) => {
+  docs.Users.remove({ '_id': mongojs.ObjectId(req.params.id) }, true, (err, deleted) => {
     if (err) {
       res.send(503, err);
     } else {
-      res.send(200);
+      res.json(200, {message: 'User deleted', data: deleted});
     }
 
     return next();
@@ -117,11 +116,11 @@ svc.updateUser = (req, res, next) => {
   docs.Users.findAndModify({
     'query': { '_id': mongojs.ObjectId(req.params.id) },
     'update': { '$set': req.body }
-  }, err => {
+  }, (err, edited) => {
     if (err) {
       res.send(503, err);
     } else {
-      res.send(200);
+      res.json(200, { message: 'User updated', data: edited });
     }
   });
 

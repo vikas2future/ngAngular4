@@ -10,4 +10,8 @@ export class EntriesService {
   addEntry(entry) {
     this.entries.push(entry);
   }
+
+  deleteEntry(index) {
+    this.entries.splice(index, 1);
+  }
 }
