@@ -7,6 +7,7 @@ import {ApiService} from '../../api-service.service';
   styleUrls: ['./list-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class ListPageComponent {
 lstRecords: any = [];
 showList = false;

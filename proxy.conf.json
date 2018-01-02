@@ -1,6 +1,6 @@
 {
-  "/": {
-    "target": "http://localhost:3050",
-    "secure": false
-  }
+    "/": {
+        "target": "http://localhost:3050",
+        "secure": false
+    }
 }

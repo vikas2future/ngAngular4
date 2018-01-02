@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Entry } from './entry';
 import {ApiService} from '../../api-service.service';
@@ -19,7 +20,6 @@ export class AddPageComponent implements OnInit {
   }
 
   newEntry = function newEntry() {
-    debugger;
     const newEntry: any = new Entry(this.entry.firstName, this.entry.lastName, this.entry.email, this.entry.phone);
     this.apiService.addUserRecord(newEntry).subscribe((result) => console.log(result));
     this.entries.push(newEntry);
