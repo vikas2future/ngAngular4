@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiService {
   apiUrl: any = '';
+  entries: Array<Object> = [];
+
   constructor(private http: HttpClient) { }
 
   getAllUserRecords(): Observable<any> {
@@ -13,7 +15,7 @@ export class ApiService {
   }
 
   updateUserRecord(editUserID, updatedRecord) {
-    console.log(editUserID)
+    console.log(editUserID);
     return this.http.put(this.apiUrl + 'user/' + editUserID, updatedRecord).map((response: any) => response);
   }
   deleteUserRecord(deleteUserID) {
@@ -24,7 +26,13 @@ export class ApiService {
     debugger;
     return this.http.post(this.apiUrl + '/user', newUser)
       .map((result: Response) => {
+        this.entries.push(result['data']);
+        console.log(result);
         return result;
       });
+  }
+
+  setEntries(entries) {
+    this.entries = entries;
   }
 }
