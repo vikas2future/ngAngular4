@@ -6,6 +6,17 @@ const server = restify.createServer();
 
 const routes = require('../src/routes');
 
+server.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+  next();
+});
+
+
+
+
+
 /**
   * Middleware
   */
@@ -13,6 +24,11 @@ server.use(restify.plugins.jsonBodyParser({ mapParams: true }));
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser({ mapParams: true }));
 server.use(restify.plugins.fullResponse());
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 /**
  *********************************************************************************

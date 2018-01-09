@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import { Component, ViewEncapsulation } from '@angular/core';
+import {ApiService} from '../../api-service.service';
 
 @Component({
   selector: 'app-list-page',
@@ -8,19 +7,24 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./list-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ListPageComponent implements OnInit {
+
+export class ListPageComponent {
 lstRecords: any = [];
-apiUrl: any = 'http://127.0.0.1:3050/users';
+showList = false;
 
-  constructor(private http: HttpClient) {
-
+  constructor(private apiService: ApiService) {
+    this.apiService.getAllUserRecords().subscribe((data) => {
+      this.apiService.setEntries(data);
+      this.lstRecords = this.apiService.entries;
+      this.lstRecords.length > 0 ? this.showList = true : this.showList = false;
+    });
   }
 
-  ngOnInit() {
-
-   this.http.get(this.apiUrl).subscribe(data => {
-     this.lstRecords = data;
-   })
+  deleteUser(id) {
+    this.apiService.deleteUserRecord(id).subscribe((response) => console.log(response));
   }
 
+  updateUser(id, updatedRecord) {
+    this.apiService.updateUserRecord(id, updatedRecord).subscribe((response) => console.log(response));
+  }
 }
